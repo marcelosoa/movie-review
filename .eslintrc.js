@@ -1,43 +1,38 @@
 module.exports = {
   env: {
     es6: true,
+    'react-native/react-native': true
   },
   extends: [
-    'airbnb',
-    'prettier',
-    'prettier/react'
+    "standard-with-typescript",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
     __DEV__: 'readonly'
   },
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true,
     },
+    project: './tsconfig.json',
+    requireConfigFile: false,
     ecmaVersion: 2018,
     sourceType: 'module',
   },
   plugins: [
     'react',
-    'prettier'
+    'react-native',
+    '@typescript-eslint'
   ],
   rules: {
-    'prettier/prettier': 'error',
-    'react/jsx-filename-extension': [
-      'warn',
-      {
-        extensions: ['.jsx', '.js']
-      }
-    ],
-    'import/prefer-default-export': 'off',
-    'react/state-in-constructor': 'off',
-    'react/static-property-placement': 'off',
-    'react/jsx-props-no-spreading': 'off',
-    'react/prop-types': 'off',
-    'no-param-reassign': 'off',
-    'no-console': 'off'
+    '@typescript-eslint/naming-convention': 'off',
+    '@typescript-eslint/no-floating-promises': 'off',
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    '@typescript-eslint/strict-boolean-expressions': 'off',
+    'react/react-in-jsx-scope': 'off'
   },
 };

@@ -3,9 +3,7 @@
   "compilerOptions": {
     "strict": true,
     "paths": {
-      "@/*": [
-        "./*"
-      ]
+      "@mobile/ui": ["./components/index.ts"]
     }
   },
   "include": [
