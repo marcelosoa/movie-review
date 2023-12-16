@@ -25,7 +25,7 @@ type AuthProps = {
 
 export const AuthenticationContext = createContext({} as AuthProps);
 
-function AuthenticationProvider ({children}: ContextProps) {
+export function AuthenticationProvider ({children}: ContextProps) {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(false);
   const router = useRouter()

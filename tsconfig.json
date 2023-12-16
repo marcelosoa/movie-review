@@ -5,6 +5,7 @@
     "paths": {
       "@mobile/ui": ["./components/index.ts"],
       "@mobile/config": ["./config/index.ts"],
+      "@mobile/context": ["./context/index.ts"],
       "@firebase/auth": ["./node_modules/@firebase/auth/dist/index.rn.d.ts"],
     }
   },
