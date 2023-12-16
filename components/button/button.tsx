@@ -39,14 +39,14 @@ const styles = StyleSheet.create({
     fontWeight: '600'
   },
   primary: {
-    backgroundColor: '#3d72db',
+    backgroundColor: '#6f8698',
     shadowColor: '#000',
     shadowOffset: {width: -1, height: 3},
     shadowOpacity: 0.2,
     shadowRadius: 3,
   },
   secondary: {
-    backgroundColor: '#e5bef4',
+    backgroundColor: '#baafc6',
     shadowColor: '#000',
     shadowOffset: {width: -1, height: 3},
     shadowOpacity: 0.2,

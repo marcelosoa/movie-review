@@ -1,38 +1,52 @@
-
 import { MaterialCommunityIcons } from '@expo/vector-icons'
-import { ButtonComponent, TextFieldComponent, TextInputComponent } from '@mobile/ui'
-import { StyleSheet, View } from 'react-native'
+import {
+  ButtonComponent,
+  LottieComponent,
+  TextFieldComponent,
+  TextInputComponent,
+} from '@mobile/ui'
+import { StyleSheet, TouchableOpacity, View } from 'react-native'
 
 export default function Login() {
   return (
     <View style={styles.container}>
-      <TextInputComponent
-        placeholder="E-mail"
-        startIcon={<MaterialCommunityIcons name="mail" size={24} color={'#f5f8f7'} />}
-        placeholderTextColor={'#fff'}
-      />
-      <TextInputComponent
-        placeholder="Password"
-        startIcon={<MaterialCommunityIcons name="mail" size={24} color={'#f5f8f7'} />}
-        placeholderTextColor={'#fff'}
-      />
-      <View style={styles.userSection}>
-          <TextFieldComponent>Forgot Password</TextFieldComponent>
-          <TextFieldComponent>Create Account</TextFieldComponent>
+      <LottieComponent />
+
+      <View style={styles.form}>
+        <TextInputComponent
+          placeholder="E-mail"
+          startIcon={<MaterialCommunityIcons name="mail" size={24} color={'#f5f8f7'} />}
+          placeholderTextColor={'#fff'}
+        />
+        <TextInputComponent
+          placeholder="Password"
+          startIcon={<MaterialCommunityIcons name="mail" size={24} color={'#f5f8f7'} />}
+          placeholderTextColor={'#fff'}
+        />
+        <View style={styles.userSection}>
+          <TouchableOpacity onPress={() => console.log('crico')}>
+            <TextFieldComponent>Forgot Password</TextFieldComponent>
+          </TouchableOpacity>
+
+          <TouchableOpacity>
+            <TextFieldComponent>Create Account</TextFieldComponent>
+          </TouchableOpacity>
+        </View>
       </View>
-      <ButtonComponent variant="primary" onPress={() => console.log('pressionado +1')}>Teste</ButtonComponent>
+      <ButtonComponent variant="primary" onPress={() => console.log('pressionado +1')}>
+        Teste
+      </ButtonComponent>
     </View>
   )
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#f4f7fd',
+    backgroundColor: '#f9fafb',
     borderTopLeftRadius: 9,
-    width: 'auto',
+    height: '100%'
   },
   userSection: {
     marginTop: 24,
@@ -43,5 +57,9 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignContent: 'center',
     width: '100%',
+  },
+  form: {
+    height: '20%',
+    alignItems: 'center',
   },
 })

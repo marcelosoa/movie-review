@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     padding: 12,
     width: 384,
     borderRadius: 8,
-    backgroundColor: '#c366e5',
+    backgroundColor: '#baafc6',
     shadowColor: '#000',
     shadowOffset: {width: -1, height: 3},
     shadowOpacity: 0.2,
@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
 },
 input: {
     flex: 1,
-    color: '#040818',
+    color: '#111418',
     alignItems: 'center'
 }
 });
