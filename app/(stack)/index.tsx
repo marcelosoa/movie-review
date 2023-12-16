@@ -1,65 +1,26 @@
-import { MaterialCommunityIcons } from '@expo/vector-icons'
-import {
-  ButtonComponent,
-  LottieComponent,
-  TextFieldComponent,
-  TextInputComponent,
-} from '@mobile/ui'
-import { StyleSheet, TouchableOpacity, View } from 'react-native'
+import { User, onAuthStateChanged } from "firebase/auth";
+import { useState, useEffect, useContext } from "react";
+import { AuthenticationContext } from "@mobile/context";
+import { ActivityIndicator } from "react-native";
+import { auth } from "@mobile/config";
+import Login from "./auth/login";
+import Home from "./home/home";
 
-export default function Login() {
-  return (
-    <View style={styles.container}>
-      <LottieComponent />
+export default function Page () {
+  const [user, setUser] = useState<User | null>(null);
+  const { loading } = useContext(AuthenticationContext)
 
-      <View style={styles.form}>
-        <TextInputComponent
-          placeholder="E-mail"
-          startIcon={<MaterialCommunityIcons name="mail" size={24} color={'#f5f8f7'} />}
-          placeholderTextColor={'#fff'}
-        />
-        <TextInputComponent
-          placeholder="Password"
-          startIcon={<MaterialCommunityIcons name="mail" size={24} color={'#f5f8f7'} />}
-          placeholderTextColor={'#fff'}
-        />
-        <View style={styles.userSection}>
-          <TouchableOpacity onPress={() => console.log('crico')}>
-            <TextFieldComponent>Forgot Password</TextFieldComponent>
-          </TouchableOpacity>
-
-          <TouchableOpacity>
-            <TextFieldComponent>Create Account</TextFieldComponent>
-          </TouchableOpacity>
-        </View>
-      </View>
-      <ButtonComponent variant="primary" onPress={() => console.log('pressionado +1')}>
-        Teste
-      </ButtonComponent>
-    </View>
-  )
+  useEffect(() => {
+      onAuthStateChanged(auth, (user) => {
+        setUser(user)
+      })
+  }, [])
+ 
+  return loading ? (
+    <ActivityIndicator color={'#fff'} size={'small'}/>
+  ) : !user ? (
+    <Login />
+  ) : <Home />
 }
 
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#f9fafb',
-    borderTopLeftRadius: 9,
-    height: '100%'
-  },
-  userSection: {
-    marginTop: 24,
-    paddingLeft: 24,
-    paddingRight: 24,
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignContent: 'center',
-    width: '100%',
-  },
-  form: {
-    height: '20%',
-    alignItems: 'center',
-  },
-})
+
