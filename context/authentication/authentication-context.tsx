@@ -35,7 +35,7 @@ export function AuthenticationProvider ({children}: ContextProps) {
     try {
       await signInWithEmailAndPassword(auth, email, password)
       setUser(user)
-      router.push('/home')
+      router.push('/home/home')
     } catch (error) {
       console.log(error)
     } finally {
@@ -48,7 +48,7 @@ export function AuthenticationProvider ({children}: ContextProps) {
     try {
       await createUserWithEmailAndPassword(auth, email, password);
       setUser(user);
-      router.push('/home')
+      router.push('/home/home')
     } catch (error) {
       console.log(error)
     } finally {
@@ -61,7 +61,6 @@ export function AuthenticationProvider ({children}: ContextProps) {
       {children}
     </AuthenticationContext.Provider>
   )
-  
 }
 
 export default AuthenticationProvider
