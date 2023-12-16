@@ -5,6 +5,7 @@ type ButtonProps = PropsWithChildren & TouchableOpacityProps & {
   startIcon?: ReactNode
   endIcon?: ReactNode
   variant: 'primary' | 'secondary'
+  onPress: () => void
 }
 
 export const ButtonComponent = ({startIcon, endIcon, children, variant = 'primary',  onPress, ...rest}: ButtonProps) => {

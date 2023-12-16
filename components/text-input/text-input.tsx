@@ -1,17 +1,30 @@
 import { ReactNode } from "react"
-import { TextInput, TextInputProps, View, StyleSheet } from "react-native"
+import { TextInput, View, StyleSheet } from "react-native"
 
-type TextInputComponentProps = TextInputProps & {
-  placeholder: string,
-  startIcon?: ReactNode
-  endIcon?: ReactNode
-}
+type InputProps = {
+  placeholder: string;
+  error?: string;
+  disabled?: boolean;
+  startIcon?: ReactNode;
+  secureTextEntry?: any
+  endIcon?: ReactNode;
+  onChangeText: (value: string) => void
+  value: string;
+  placeholderTextColor?: string
+};
 
-export const TextInputComponent = ({ placeholder, startIcon, endIcon, placeholderTextColor }: TextInputComponentProps) => {
+export const TextInputComponent = ({ placeholder, startIcon, endIcon, placeholderTextColor, value, onChangeText }: InputProps) => {
   return (
     <View style={styles.container}>
       {startIcon}
-      <TextInput placeholder={placeholder} placeholderTextColor={placeholderTextColor} style={styles.input}/>
+      <TextInput 
+        placeholder={placeholder} 
+        placeholderTextColor={placeholderTextColor} 
+        style={styles.input} 
+        autoCapitalize="none" 
+        value={value}
+        onChangeText={onChangeText}
+      />
       {endIcon}
     </View>
   )

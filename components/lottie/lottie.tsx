@@ -1,7 +1,11 @@
 import React, { useEffect, useRef } from 'react';
 import LottieView from 'lottie-react-native';
 
-export const LottieComponent = () => {
+type LottieProps = {
+  source: string
+}
+
+export const LottieComponent = ({source}: LottieProps) => {
   const animationRef = useRef<LottieView>(null);
 
   useEffect(() => {
@@ -13,10 +17,10 @@ export const LottieComponent = () => {
     <LottieView
       ref={animationRef}
       style={{
-        width: 200,
-        height: 200,
+        width: 450,
+        height: 240,
       }}
-      source={require('../../assets/images/lottie1.json')}
+      source={source}
     />
   );
 }
